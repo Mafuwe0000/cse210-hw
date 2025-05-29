@@ -25,6 +25,12 @@ class Scripture
         int hiddenNumber = 0;
         while (hiddenNumber < numberToHide)
         {
+
+             if (isCompletelyHidden())
+            {
+                break;
+            }
+
             int index = random.Next(_words.Count);
             if (!_words[index].IsHidden())
             {
@@ -32,6 +38,7 @@ class Scripture
             _words[index].Hide();
             hiddenNumber ++;
             }
+           
         }
         
              
@@ -51,7 +58,7 @@ class Scripture
         {
             _displayedWords.Add(word.GetDisplayText());
         }
-        return _reference.ToString ()+""+string.Join("",_displayedWords);
+        return _reference.ToString () +" "+ string.Join(" ",_displayedWords);
 
     }
 
@@ -61,10 +68,10 @@ class Scripture
         {
             if (!item.IsHidden())
             {
-                return true;
+                return false;
             }  
         }
-        return false;
+        return true;
       
     }
 }

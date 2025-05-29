@@ -39,4 +39,9 @@ class Reference
         }
     }
 
+    public override string ToString()
+    {
+        return $"{_book}{_chapter}.{_verse}{_endVerse}";
+    }
+
 }
